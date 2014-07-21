@@ -8,6 +8,9 @@ export DH_OPTIONS=
 
 export SHELL=/bin/bash
 
+./prepare.sh
+
+
 distribution	:= $(shell dpkg-vendor --query Vendor)
 
 DEB_HOST_ARCH	?= $(shell dpkg-architecture -qDEB_HOST_ARCH 2>/dev/null)
