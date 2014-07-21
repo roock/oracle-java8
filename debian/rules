@@ -8,9 +8,6 @@ export DH_OPTIONS=
 
 export SHELL=/bin/bash
 
-./prepare.sh
-
-
 distribution	:= $(shell dpkg-vendor --query Vendor)
 
 DEB_HOST_ARCH	?= $(shell dpkg-architecture -qDEB_HOST_ARCH 2>/dev/null)
@@ -650,6 +647,10 @@ binary-arch:	$(binary_arch_targets)
 	dh_md5sums
 	dh_builddeb
 
+
+prepare:  ./prepare.sh
+
+
 binary: binary-arch binary-indep
 
-.PHONY: binary binary-indep binary-arch build build-indep build-arch clean
+.PHONY: prepare binary binary-indep binary-arch build build-indep build-arch clean
