@@ -157,7 +157,7 @@ control-stamp: debian/control packaging-files
 build: build-arch build-indep
 build-arch: build-stamp
 build-indep: build-stamp
-build-stamp: info control-stamp
+build-stamp: info prepare  control-stamp
 	touch build-stamp
 
 debian/control: debian/control.in debian/rules
@@ -653,4 +653,4 @@ prepare:  ./prepare.sh
 
 binary: binary-arch binary-indep
 
-.PHONY: prepare binary binary-indep binary-arch build build-indep build-arch clean
+.PHONY: binary binary-indep binary-arch build build-indep build-arch clean
