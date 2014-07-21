@@ -648,9 +648,10 @@ binary-arch:	$(binary_arch_targets)
 	dh_builddeb
 
 
-prepare:
+prepare: prepare-stamp
+prepare-stamp:
 	./prepare.sh
-
+	touch prepare-stamp
 
 binary: binary-arch binary-indep
 
