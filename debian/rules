@@ -648,7 +648,8 @@ binary-arch:	$(binary_arch_targets)
 	dh_builddeb
 
 
-prepare:  ./prepare.sh
+prepare:
+	./prepare.sh
 
 
 binary: binary-arch binary-indep
