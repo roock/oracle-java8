@@ -304,8 +304,8 @@ binary-$(p_jbin):	build
     echo "etc/ssl/certs/java/cacerts $(basedir)/jre/lib/security/cacerts" \
    	    >> $(d_jbin).links
 
-: # create links for the conffiles
-find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
+    : # create links for the conffiles
+    find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
 	    -printf "etc/$(jdiralias)/%P $(basedir)/jre/lib/%P\n" >> $(d_jbin).links
 	echo "etc/$(jdiralias)/jvm.cfg $(basedir)/jre/lib/$(archdir)/jvm.cfg" \
 	    >> $(d_jbin).links
