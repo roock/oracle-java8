@@ -301,7 +301,7 @@ binary-$(p_jbin):	build
 	-mv $(d_jbin)/$(basedir)/jre/lib/security/java.*} \
 		$(d_jbin)/$(security)
 
-echo "etc/ssl/certs/java/cacerts $(basedir)/jre/lib/security/cacerts" \
+    echo "etc/ssl/certs/java/cacerts $(basedir)/jre/lib/security/cacerts" \
    	    >> $(d_jbin).links
 
 : # create links for the conffiles
