@@ -55,6 +55,10 @@ ifeq ($(distribution),Ubuntu)
   java_launcher = cautious-launcher %f /$(basedir)/bin/java
 endif
 
+pkg_certs = ca-certificates-java
+control_vars += '-Vcacert:Depends=$(pkg_certs)'
+
+
 cjk_fonts = ttf-baekmuk | ttf-unfonts-core,
 cjk_fonts += ttf-kochi-gothic | ttf-sazanami-gothic,
 cjk_fonts += ttf-kochi-mincho | ttf-sazanami-mincho,
@@ -293,11 +297,15 @@ binary-$(p_jbin):	build
 
 	mv $(d_jbin)/$(basedir)/jre/lib/$(archdir)/jvm.cfg \
 		$(d_jbin)/etc/$(jdiralias)/
-	-mv $(d_jbin)/$(basedir)/jre/lib/security/{java.*,cacerts} \
+
+	-mv $(d_jbin)/$(basedir)/jre/lib/security/java.*} \
 		$(d_jbin)/$(security)
 
-	: # create links for the conffiles
-	find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
+echo "etc/ssl/certs/java/cacerts $(basedir)/jre/lib/security/cacerts" \
+   	    >> $(d_jbin).links
+
+: # create links for the conffiles
+find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
 	    -printf "etc/$(jdiralias)/%P $(basedir)/jre/lib/%P\n" >> $(d_jbin).links
 	echo "etc/$(jdiralias)/jvm.cfg $(basedir)/jre/lib/$(archdir)/jvm.cfg" \
 	    >> $(d_jbin).links
@@ -626,7 +634,7 @@ binary-indep:	$(binary_indep_targets)
 	dh_compress -Xdemo -Xsample -X.html
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol
+	dh_gencontrol -- $(control_vars)
 	dh_md5sums
 	dh_builddeb
 
@@ -643,7 +651,7 @@ binary-arch:	$(binary_arch_targets)
 	dh_compress -Xdemo -Xexamples -Xsample -X.html -X.pdf
 	dh_fixperms
 	dh_installdeb
-	dh_gencontrol
+	dh_gencontrol -- $(control_vars)
 	dh_md5sums
 	dh_builddeb
 

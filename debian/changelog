@@ -1,3 +1,9 @@
+oracle-java8 (8.31-3) stable; urgency=low
+
+  * using ca-certificates-java
+
+ -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 13:53:15 +0000
+
 oracle-java8 (8.31-2) stable; urgency=low
 
   * New Java Release
