@@ -1,3 +1,9 @@
+oracle-java8 (8.31-7) stable; urgency=low
+
+  * adding ca-certificates-java to build dependencies
+
+ -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 15:01:39 +0000
+
 oracle-java8 (8.31-6) stable; urgency=low
 
   * new release
