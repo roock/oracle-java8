@@ -56,7 +56,7 @@ ifeq ($(distribution),Ubuntu)
 endif
 
 pkg_certs = ca-certificates-java
-control_vars += '-Vcacert:Depends=$(pkg_certs)'
+control_vars = '-Vdist:Depends=$(pkg_certs)'
 
 
 cjk_fonts = ttf-baekmuk | ttf-unfonts-core,
