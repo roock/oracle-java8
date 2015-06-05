@@ -1,56 +1,109 @@
-oracle-java8 (8.45-1) stable; urgency=low
+oracle-java8 (8.45-1) stable; urgency=high
 
-  * adding ca-certificates-java to build dependencies
+  * SECURITY UPDATE:
+     - (CVE-2015-0469): layout engine glyphStorage off-by-one (2D)
+     - (CVE-2015-0459): unspecified vulnerability fixed in 8u45 (2D)
+     - (CVE-2015-0491): unspecified vulnerability fixed in 8u45 (2D)
+     - (CVE-2015-0460): incorrect handling of phantom references (Hotspot)
+     - (CVE-2015-0492): unspecified vulnerability fixed in 8u45 (JavaFX)
+     - (CVE-2015-0458): unspecified vulnerability fixed in 8u45 (Deployment)
+     - (CVE-2015-0484): unspecified vulnerability fixed in 8u45 (JavaFX)
+     - (CVE-2015-0480): jar directory traversal issues (Tools)
+     - (CVE-2015-0486): unspecified vulnerability fixed in 8u45 (Deployment)
+     - (CVE-2015-0488): certificate options parsing uncaught exception (JSSE)
+     - (CVE-2015-0477): incorrect permissions check in resource loading
+                        (Beans)
+     - (CVE-2015-0470): incorrect handling of default methods (Hotspot)
+     - (CVE-2015-0478): RSA implementation hardening (JCE)
 
- -- Roman Pertl <r.pertl@ixolit.com>  Fri, 05 Jun 2015 09:00:01 +0000
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Tue, 14 Apr 2015 20:26:26 +0200
 
-oracle-java8 (8.31-7) stable; urgency=low
-
-  * adding ca-certificates-java to build dependencies
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 15:01:39 +0000
-
-oracle-java8 (8.31-6) stable; urgency=low
-
-  * new release
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 14:38:53 +0000
-
-oracle-java8 (8.31-5) stable; urgency=low
-
-  * new release
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 14:14:10 +0000
-
-oracle-java8 (8.31-4) stable; urgency=low
-
-  * new release
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 14:13:56 +0000
-
-oracle-java8 (8.31-3) stable; urgency=low
-
-  * using ca-certificates-java
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 29 Jan 2015 13:53:15 +0000
-
-oracle-java8 (8.31-2) stable; urgency=low
-
-  * New Java Release
-
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 22 Jan 2015 10:32:44 +0000
-
-oracle-java8 (8.25-1.1) stable; urgency=low
+oracle-java8 (8.40-1) stable; urgency=low
 
   * New Java release
 
- -- Roman Pertl <r.pertl@ixolit.com>  Thu, 15 Jan 2015 11:20:36 +0000
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Thu, 05 Mar 2015 09:49:29 +0100
+
+oracle-java8 (8.31-1) stable; urgency=high
+
+  * Disable resume while downloading JCE policy file
+  * Increase Java 8 priority to make it higher than Java7 which is nearing EOL
+  * SECURITY UPDATE:
+     - (CVE-2014-6601): class verifier insufficient invokespecial calls
+                        verification (Hotspot)
+     - (CVE-2015-0412): insufficient code privileges checks (JAX-WS)
+     - (CVE-2014-6549): incorrect class loader permission check in ClassLoader
+                        getParent() (Libraries)
+     - (CVE-2015-0408): incorrect context class loader use in RMI transport
+                        (RMI)
+     - (CVE-2015-0395): phantom references handling issue in garbage collector
+                        (Hotspot)
+     - (CVE-2015-0437): code generation issue (Hotspot)
+     - (CVE-2015-0403): unspecified vulnerability fixed in 8u31 (Deployment)
+     - (CVE-2015-0421): unspecified vulnerability fixed in 8u31 (Install)
+     - (CVE-2015-0406): unspecified vulnerability fixed in 8u31 (Deployment)
+     - (CVE-2015-0383): insecure hsperfdata temporary file handling (Hotspot)
+     - (CVE-2015-0400): NTLM authentication data disclosure via redirect
+                        to proxy (Libraries)
+     - (CVE-2015-0407): directory information leak via file chooser (Swing)
+     - (CVE-2015-0410): DER decoder infinite loop (Security)
+     - (CVE-2014-6587): MulticastSocket NULL pointer dereference (Libraries)
+     - (CVE-2014-3566): SSL/TLS: Padding Oracle On Downgraded Legacy Encryption
+                        attack (JSSE)
+     - (CVE-2014-6593): incorrect tracking of ChangeCipherSpec during SSL/TLS
+                        handshake (JSSE)
+     - (CVE-2014-6585): ICU: font parsing OOB read (2D)
+     - (CVE-2014-6591): ICU: font parsing OOB read (2D)
+     - (CVE-2015-0413): unspecified vulnerability fixed in 8u31 (Serviceability)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 21 Jan 2015 11:18:46 +0100
+
+oracle-java8 (8.25-1) stable; urgency=high
+
+  * Fix libodbc symlinks
+  * Update standards version to 3.9.6
+  * SECURITY UPDATE:
+     - (CVE-2014-6513): splash image handling memory corruption (AWT)
+     - (CVE-2014-6532): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6503): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6456): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6562): incorrect handling of zip entries with NUL in name
+                        (Libraries)
+     - (CVE-2014-6485): unspecified vulnerability fixed in 8u25 (JavaFX)
+     - (CVE-2014-6492): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6493): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-4288): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6466): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6458): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6468): insufficient SharedArchiveFile checks (Hotspot)
+     - (CVE-2014-6506): insufficient permission checks when setting resource
+                        bundle on system logger (Libraries)
+     - (CVE-2014-6511): ICU: Layout Engine ContextualSubstitution missing
+                        boundary checks (2D)
+     - (CVE-2014-6476): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6515): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6504): incorrect optimization of range checks in C2 compiler
+                        (Hotspot)
+     - (CVE-2014-6519): missing BootstrapMethods bounds check (Hotspot)
+     - (CVE-2014-6517): StAX parser parameter entity XXE (JAXP)
+     - (CVE-2014-6531): insufficient ResourceBundle name check (Libraries)
+     - (CVE-2014-6512): DatagramSocket connected socket missing source check
+                        (Libraries)
+     - (CVE-2014-6457): Triple Handshake attack against TLS/SSL connections
+                        (JSSE)
+     - (CVE-2014-6527): unspecified vulnerability fixed in 8u25 (Deployment)
+     - (CVE-2014-6502): LogRecord use of incorrect CL when loading
+                        ResourceBundle (Libraries)
+     - (CVE-2014-6558): CipherInputStream incorrect exception handling
+                        (Security)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 15 Oct 2014 13:19:07 +0200
 
 oracle-java8 (8.20-1) stable; urgency=low
 
- * New Java release
+  * New Java release
 
- -- Janusz Dziemidowicz <rraptorr@nails.eu.org> Wed, 20 Aug 2014 08:31:28 +0200
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 20 Aug 2014 08:31:28 +0200
 
 oracle-java8 (8.11-1) stable; urgency=high
 

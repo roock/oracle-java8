@@ -10,7 +10,8 @@ export SHELL=/bin/bash
 
 distribution	:= $(shell dpkg-vendor --query Vendor)
 
-DEB_HOST_ARCH	?= $(shell dpkg-architecture -qDEB_HOST_ARCH 2>/dev/null)
+DEB_HOST_ARCH		?= $(shell dpkg-architecture -qDEB_HOST_ARCH 2>/dev/null)
+DEB_HOST_MULTIARCH	?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH 2>/dev/null)
 
 arch_map	:= amd64=x64 i386=i586
 archdir_map	:= amd64=amd64 i386=i386
@@ -36,7 +37,7 @@ jdkbuild	:= 14
 jdirname	:= java-$(version)-$(VENDOR)-$(jdkversion).$(releng_ver)
 jdiralias	:= java-$(version)-$(VENDOR)
 srcdir		:= $(arch)
-priority	:= 43
+priority	:= 83
 
 basedir		:= $(TOP)/$(jdirname)
 security	:= etc/$(jdiralias)/security
@@ -71,7 +72,7 @@ get-orig-source:
 	  curl -fLC - --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jdk/$(version)u$(releng_ver)-b$(jdkbuild)/jdk-$(version)u$(releng_ver)-linux-$$arch.tar.gz; \
 	done
-	@curl -fLC - --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
+	@curl -fL --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jce/$(version)/jce_policy-8.zip
 
 info:
@@ -381,15 +382,15 @@ binary-$(p_jbin):	build
 	-find $(d_jbin)/$(basedir)/jre/man -name '*.[1-9]' | xargs gzip
 
 # make these absolute links, so we can use them for resolving the dependencies
-	ln -sf /usr/lib/libodbcinst.so.1 \
+	ln -sf /usr/lib/$(DEB_HOST_MULTIARCH)/libodbcinst.so.1 \
 		$(d_jbin)/$(basedir)/jre/lib/$(archdir)/libodbcinst.so
-	ln -sf /usr/lib/libodbc.so.1 \
+	ln -sf /usr/lib/$(DEB_HOST_MULTIARCH)/libodbc.so.1 \
 		$(d_jbin)/$(basedir)/jre/lib/$(archdir)/libodbc.so
 
 	rm -f $(d_jbin).substvars
 	dh_shlibdeps \
 		-l$(basedir)/jre/lib/$(archdir)/server \
-		-Xlibnpjp2.so -Xlibavplugin.so -Xlibdecora_sse.so \
+		-Xlibnpjp2.so -Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
@@ -406,7 +407,7 @@ binary-$(p_jbin):	build
 		-Xlibjavaplugin -Xlibawt -Xlibjawt -Xlibdcpr \
 		-Xlibfontmanager -Xlibjsoundalsa \
 		-Xlibsplashscreen -Xlibmlib -Xlibdeploy \
-		-Xlibavplugin.so -Xlibdecora_sse.so \
+		-Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
