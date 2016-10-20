@@ -74,7 +74,7 @@ get-orig-source:
 	done
 	@curl -fL --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jce/$(version)/jce_policy-8.zip
-	echo "79a3f25e9b466cb9e969d1772ea38550de320c88e9119bf8aa11ce8547c39987  jdk-8u92-linux-x64.tar.gz" | sha256sum -c
+	echo "7cfbe0bc0391a4abe60b3e9eb2a541d2315b99b9cb3a24980e618a89229e04b7  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
 	echo "f3020a3922efd6626c2fff45695d527f34a8020e938a49292561f18ad1320b59  jce_policy-8.zip" | sha256sum -c
 
 info:
@@ -392,7 +392,7 @@ binary-$(p_jbin):	build
 	rm -f $(d_jbin).substvars
 	dh_shlibdeps \
 		-l$(basedir)/jre/lib/$(archdir)/server \
-		-Xlibnpjp2.so -Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibdecora_sse.so \
+		-Xlibnpjp2.so -Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-ffmpeg-56.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
@@ -409,7 +409,7 @@ binary-$(p_jbin):	build
 		-Xlibjavaplugin -Xlibawt -Xlibjawt -Xlibdcpr \
 		-Xlibfontmanager -Xlibjsoundalsa \
 		-Xlibsplashscreen -Xlibmlib -Xlibdeploy \
-		-Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibdecora_sse.so \
+		-Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-ffmpeg-56.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
