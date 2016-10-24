@@ -3,14 +3,19 @@ Introduction
 
 Java 8 packages for Debian.
 
+orginal can be founde at: https://github.com/rraptorr/oracle-java8
+This repository only supports amd64 builds.
+The prepare steps has been included in the main debian buildpackage script
+Has been successfully tested with Jenkins+jenkins-debian-glue+cowbuilder
+
+
 Supported Debian versions
 -------------------------
 
 So far packages were tested on following Debian versions:
 
-- stretch i386/amd64
-- jessie i386/amd64
-- wheezy i386/amd64
+- jessie amd64
+- wheezy amd64
 
 I do not have resources to test packages on Ubuntu. However, if one
 finds any problem on Ubuntu, feel free to report an issue and I will
