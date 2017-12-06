@@ -175,7 +175,6 @@ oracle-java8 (8.111-1) stable; urgency=high
                        (Libraries)
 
  -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Sun, 23 Oct 2016 10:57:14 +0200
->>>>>>> github/master
 
 oracle-java8 (8.102-1) stable; urgency=low
 
