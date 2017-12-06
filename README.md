@@ -14,6 +14,7 @@ Supported Debian versions
 
 So far packages were tested on following Debian versions:
 
+- stretch amd64
 - jessie amd64
 - wheezy amd64
 
