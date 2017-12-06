@@ -14,16 +14,6 @@ debian=`echo $version | cut -d" " -f 3`
 
 make -f "$dir"/debian/rules -C "$dir" get-orig-source
 
-rm -rf "$dir"/UnlimitedJCEPolicyJDK8
-unzip -q "$dir"/jce_policy-8.zip -d "$dir"
-tar -czf "$dir"/../oracle-java${major}_${major}.${minor}.orig-UnlimitedJCEPolicyJDK8.tar.gz -C "$dir" UnlimitedJCEPolicyJDK8
-rm -f "$dir"/jce_policy-8.zip
-
-#rm -rf "$dir"/i586 "$dir"/jdk1.${major}.0_${minor}
-#tar xf "$dir"/jdk-${major}u${minor}-linux-i586.tar.gz -C "$dir"
-#mv "$dir"/jdk1.${major}.0_${minor} "$dir"/i586
-#mv "$dir"/jdk-${major}u${minor}-linux-i586.tar.gz "$dir"/../oracle-java${major}_${major}.${minor}.orig-i586.tar.gz
-
 rm -rf "$dir"/x64 "$dir"/jdk1.${major}.0_${minor}
 tar xf "$dir"/jdk-${major}u${minor}-linux-x64.tar.gz -C "$dir"
 mv "$dir"/jdk1.${major}.0_${minor} "$dir"/x64

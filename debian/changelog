@@ -1,8 +1,181 @@
-oracle-java8 (8.112-1) stable; urgency=low
+oracle-java8 (8.152-1) stable; urgency=medium
 
   * New Java release
 
- -- Roman Pertl <r.pertl@ixolit.com>  Mon, 24 Oct 2016 15:29:05 +0200
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Thu, 19 Oct 2017 14:29:41 +0200
+
+oracle-java8 (8.151-1) stable; urgency=medium
+
+  * Oracle changed how JCE unlimited policy works. There is no longer need to
+    download anything. Both limited and unlimited policies are present.
+    One can select JCE policy in /etc/java-8-oracle/security/java.security
+    This package changes the default in that file to unlimited, but you might
+    need to add that if you modified java.security file previously.
+  * SECURITY UPDATE:
+    - (CVE-2017-10346): insufficient loader constraints checks for invokespecial
+                        (Hotspot)
+    - (CVE-2017-10285): incorrect privilege use when handling unreferenced
+                        objects (RMI)
+    - (CVE-2017-10388): use of unprotected sname in Kerberos client (Libraries)
+    - (CVE-2017-10309): unspecified vulnerability fixed in 8u151 (Deployment)
+    - (CVE-2017-10274): CardImpl incorrect state handling (Smart Card IO)
+    - (CVE-2017-10356): weak protection of key stores against brute forcing
+                        (Security)
+    - (CVE-2017-10293): unspecified vulnerability fixed in 8u151 (Javadoc)
+    - (CVE-2017-10350): unbounded memory allocation in JAXWSExceptionBase
+                        deserialization (JAX-WS)
+    - (CVE-2017-10349): unbounded memory allocation in PredicatedNodeTest
+                        deserialization (JAXP)
+    - (CVE-2017-10348): multiple unbounded memory allocations in deserialization
+                        (Libraries)
+    - (CVE-2017-10357): unbounded memory allocation in ObjectInputStream
+                        deserialization (Serialization)
+    - (CVE-2016-9841): zlib: Out-of-bounds pointer arithmetic in inffast.c
+                       (Util (zlib))
+    - (CVE-2016-10165): lcms2: Out-of-bounds read in Type_MLU_Read()
+                        (2D (Little CMS 2))
+    - (CVE-2017-10355): no default network operations timeouts in FtpClient
+                        (Networking)
+    - (CVE-2017-10281): multiple unbounded memory allocations in deserialization
+                        (Serialization)
+    - (CVE-2017-10347): unbounded memory allocation in SimpleTimeZone
+                        deserialization (Serialization)
+    - (CVE-2017-10295): HTTP client insufficient check for newline in URLs
+                        (Networking)
+    - (CVE-2017-10345): unbounded resource use in JceKeyStore deserialization
+                        (Serialization)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Thu, 19 Oct 2017 12:49:32 +0200
+
+oracle-java8 (8.144-1) stable; urgency=medium
+
+  * New Java release
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Tue, 01 Aug 2017 22:07:10 +0200
+
+oracle-java8 (8.141-1) jessie; urgency=high
+
+  * New CA certificate added to root CAs "ISRG Root X1"
+    used by Let's Encrypt project.
+  * Any TLS server certificate chain containing a SHA-1 certificate (end-entity
+    or intermediate CA) and anchored by a root CA certificate included by default
+    in Oracle's JDK is now blocked by default.
+  * SECURITY UPDATE:
+    - (CVE-2017-10110): insufficient access control checks in ImageWatched (AWT)
+    - (CVE-2017-10089): insufficient access control checks in ServiceRegistry
+                        (ImageIO)
+    - (CVE-2017-10086): unspecified vulnerability fixed in 8u141 (JavaFX)
+    - (CVE-2017-10096): insufficient access control checks in XML transformations
+                        (JAXP)
+    - (CVE-2017-10101): unrestricted access to
+                        com.sun.org.apache.xml.internal.resolver (JAXP)
+    - (CVE-2017-10087): insufficient access control checks in ThreadPoolExecutor
+                        (Libraries)
+    - (CVE-2017-10090): insufficient access control checks in
+                        AsynchronousChannelGroupImpl (Libraries)
+    - (CVE-2017-10111): incorrect range checks in LambdaFormEditor (Libraries)
+    - (CVE-2017-10107): insufficient access control checks in ActivationID (RMI)
+    - (CVE-2017-10102): incorrect handling of references in DGC (RMI)
+    - (CVE-2017-10114): unspecified vulnerability fixed in 8u141 (JavaFX)
+    - (CVE-2017-10074): integer overflows in range check loop predicates
+                        (Hotspot)
+    - (CVE-2017-10116): LDAPCertStore following referrals to non-LDAP URLs
+                        (Security)
+    - (CVE-2017-10078): Nashorn incompletely blocking access to Java APIs
+                        (Scripting)
+    - (CVE-2017-10067): JAR verifier incorrect handling of missing digest
+                        (Security)
+    - (CVE-2017-10115): DSA implementation timing attack (JCE)
+    - (CVE-2017-10118): ECDSA implementation timing attack (JCE)
+    - (CVE-2017-10176): incorrect handling of certain EC points (Security)
+    - (CVE-2017-10125): unspecified vulnerability fixed in 8u141 (Deployment)
+    - (CVE-2017-10198): incorrect enforcement of certificate path restrictions
+                        (Security)
+    - (CVE-2017-10243): unspecified vulnerability fixed in 8u141 (JAX-WS)
+    - (CVE-2017-10135): PKCS#8 implementation timing attack (JCE)
+    - (CVE-2017-10053): reading of unprocessed image data in JPEGImageReader (2D)
+    - (CVE-2017-10108): unbounded memory allocation in BasicAttribute
+                        deserialization (Serialization)
+    - (CVE-2017-10109): unbounded memory allocation in CodeSource
+                        deserialization (Serialization)
+    - (CVE-2017-10105): unspecified vulnerability fixed in 8u141 (Deployment)
+    - (CVE-2017-10081): incorrect bracket processing in function signature
+                        handling (Hotspot)
+    - (CVE-2017-10193): incorrect key size constraint check (Security)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 19 Jul 2017 10:45:40 +0200
+
+oracle-java8 (8.131-1) jessie; urgency=high
+
+  * SECURITY UPDATE:
+    - (CVE-2017-3512): unspecified vulnerability fixed in 8u131 (AWT)
+    - (CVE-2017-3514): unspecified vulnerability fixed in 8u131 (AWT)
+    - (CVE-2017-3511): untrusted extension directories search path in Launcher
+                       (JCE)
+    - (CVE-2017-3526): incomplete XML parse tree size enforcement (JAXP)
+    - (CVE-2017-3509): improper re-use of NTLM authenticated connections
+                       (Networking)
+    - (CVE-2017-3533): newline injection in the FTP client (Networking)
+    - (CVE-2017-3544): newline injection in the SMTP client (Networking)
+    - (CVE-2017-3539): MD5 allowed for jar verification (Security)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 19 Apr 2017 10:56:42 +0200
+
+oracle-java8 (8.121-1) stable; urgency=high
+
+  * SECURITY UPDATE:
+    - (CVE-2017-3289): insecure class construction (Hotspot)
+    - (CVE-2017-3272): insufficient protected field access checks in atomic
+                       field updaters (Libraries)
+    - (CVE-2017-3241): untrusted input deserialization in RMI registry and DCG
+                       (RMI)
+    - (CVE-2017-3260): unspecified vulnerability fixed in 8u121 (AWT)
+    - (CVE-2017-3253): imageio PNGImageReader failed to honor ignoreMetadata
+                       for iTXt and zTXt chunks (2D)
+    - (CVE-2016-5546): incorrect ECDSA signature extraction from the DER input
+                       (Libraries)
+    - (CVE-2016-5549): ECDSA implementation timing attack (Libraries)
+    - (CVE-2016-5548): DSA implementation timing attack (Libraries)
+    - (CVE-2017-3252): LdapLoginModule incorrect userDN extraction (JAAS)
+    - (CVE-2017-3262): unspecified vulnerability fixed in 8u121
+                       (Java Mission Control)
+    - (CVE-2016-5547): missing ObjectIdentifier length check (Libraries)
+    - (CVE-2016-5552): incorrect URL parsing in URLStreamHandler (Networking)
+    - (CVE-2017-3231): URLClassLoader insufficient access control checks
+                       (Networking)
+    - (CVE-2017-3261): integer overflow in SocketOutputStream boundary check
+                       (Networking)
+    - (CVE-2017-3259): unspecified vulnerability fixed in 8u121 (Deployment)
+    - (CVE-2016-8328): unspecified vulnerability fixed in 8u121
+                       (Java Mission Control)
+    - (CVE-2016-2183): SSL/TLS: Birthday attack against 64-bit block ciphers
+                       (SWEET32) (Libraries)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Wed, 18 Jan 2017 20:56:07 +0100
+
+oracle-java8 (8.112-1) stable; urgency=medium
+
+  * New Java release
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Sun, 23 Oct 2016 11:47:27 +0200
+
+oracle-java8 (8.111-1) stable; urgency=high
+
+  * SECURITY UPDATE:
+    - (CVE-2016-5556): unspecified vulnerability fixed in 8u111 (2D)
+    - (CVE-2016-5568): incorrect menu handling on Windows (AWT)
+    - (CVE-2016-5582): incomplete type checks of System.arraycopy arguments
+                       (Hotspot)
+    - (CVE-2016-5573): insufficient checks of JDWP packets (Hotspot)
+    - (CVE-2016-5597): exposure of server authentication credentials to proxy
+                       (Networking)
+    - (CVE-2016-5554): insufficient classloader consistency checks in
+                       ClassLoaderWithRepository (JMX)
+    - (CVE-2016-5542): missing algorithm restrictions for jar verification
+                       (Libraries)
+
+ -- Janusz Dziemidowicz <rraptorr@nails.eu.org>  Sun, 23 Oct 2016 10:57:14 +0200
+>>>>>>> github/master
 
 oracle-java8 (8.102-1) stable; urgency=low
 
