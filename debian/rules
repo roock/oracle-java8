@@ -33,8 +33,8 @@ dirpartsv	:= $(shell dpkg-parsechangelog | sed -ne '/Version:/ s,Version: \(.*\)
 version		:= $(word 1, $(dirpartsv))
 releng_ver	:= $(word 2, $(dirpartsv))
 jdkversion	:= 1.$(version).0
-jdkbuild	:= 16
-downloadhash	:= aa0333dd3019491ca4f6ddbe78cdb6d0
+jdkbuild	:= 11
+downloadhash	:= a58eab1ec242421181065cdc37240b08
 jdirname	:= java-$(version)-$(VENDOR)-$(jdkversion).$(releng_ver)
 jdiralias	:= java-$(version)-$(VENDOR)
 srcdir		:= $(arch)
@@ -73,7 +73,7 @@ get-orig-source:
 	  curl -fL --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jdk/$(version)u$(releng_ver)-b$(jdkbuild)/$(downloadhash)/jdk-$(version)u$(releng_ver)-linux-$$arch.tar.gz; \
 	done
-	echo "218b3b340c3f6d05d940b817d0270dfe0cfd657a636bad074dcabe0c111961bf  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
+	echo "28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
 
 info:
 	@echo Build information
@@ -300,8 +300,6 @@ binary-$(p_jbin):	build
 	-mv $(d_jbin)/$(basedir)/jre/lib/security/java.* \
 		$(d_jbin)/$(security)
 
-	sed -i 's,#crypto.policy=unlimited,crypto.policy=unlimited,' $(d_jbin)/$(security)/java.security
-
 	: # create links for the conffiles
 	find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
 	    -printf "etc/$(jdiralias)/%P $(basedir)/jre/lib/%P\n" >> $(d_jbin).links
@@ -387,7 +385,7 @@ binary-$(p_jbin):	build
 	rm -f $(d_jbin).substvars
 	dh_shlibdeps \
 		-l$(basedir)/jre/lib/$(archdir)/server \
-		-Xlibnpjp2.so -Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-ffmpeg-56.so -Xlibdecora_sse.so \
+		-Xlibnpjp2.so -Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-57.so -Xlibavplugin-ffmpeg-56.so -Xlibavplugin-ffmpeg-57.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
@@ -404,7 +402,7 @@ binary-$(p_jbin):	build
 		-Xlibjavaplugin -Xlibawt -Xlibjawt -Xlibdcpr \
 		-Xlibfontmanager -Xlibjsoundalsa \
 		-Xlibsplashscreen -Xlibmlib -Xlibdeploy \
-		-Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-ffmpeg-56.so -Xlibdecora_sse.so \
+		-Xlibavplugin-53.so -Xlibavplugin-54.so -Xlibavplugin-55.so -Xlibavplugin-56.so -Xlibavplugin-57.so -Xlibavplugin-ffmpeg-56.so -Xlibavplugin-ffmpeg-57.so -Xlibdecora_sse.so \
 		-Xlibfxplugins.so -Xlibglass.so -Xlibgstreamer-lite.so \
 		-Xlibjavafx -Xlibjfx -Xlibprism \
 		-- --warnings=0
