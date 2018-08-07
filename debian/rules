@@ -296,8 +296,8 @@ binary-$(p_jbin):	build
 	mv $(d_jbin)/$(basedir)/jre/lib/$(archdir)/jvm.cfg \
 		$(d_jbin)/etc/$(jdiralias)/
 
-	-mv $(d_jbin)/$(basedir)/jre/lib/security/java.* \
-		$(d_jbin)/$(security)
+	-mv $(d_jbin)/$(basedir)/jre/lib/security/{java.*,cacerts} \
+        $(d_jbin)/$(security)
 
 	: # create links for the conffiles
 	find $(d_jbin)/etc/$(jdiralias) -type f ! -name jvm.cfg \
