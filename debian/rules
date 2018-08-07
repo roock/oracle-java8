@@ -73,7 +73,6 @@ get-orig-source:
 	  curl -fL --retry 3 --retry-delay 3 -O --header 'Cookie: oraclelicense=accept-securebackup-cookie' \
 	    http://download.oracle.com/otn-pub/java/jdk/$(version)u$(releng_ver)-b$(jdkbuild)/$(downloadhash)/jdk-$(version)u$(releng_ver)-linux-$$arch.tar.gz; \
 	done
-	echo "28a00b9400b6913563553e09e8024c286b506d8523334c93ddec6c9ec7e9d346  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
 	echo "1845567095bfbfebd42ed0d09397939796d05456290fb20a83c476ba09f991d3  jdk-$(version)u$(releng_ver)-linux-x64.tar.gz" | sha256sum -c
 
 info:
